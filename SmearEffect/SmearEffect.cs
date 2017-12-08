@@ -15,9 +15,10 @@ public class SmearEffect : MonoBehaviour
 		get
 		{
 			if (!_smearMat)
-				_smearMat = renderer.material;
+                _smearMat = GetComponent<Renderer>().material;
+            //_smearMat = renderer.material;
 
-			if (!_smearMat.HasProperty("_PrevPosition"))
+            if (!_smearMat.HasProperty("_PrevPosition"))
 				_smearMat.shader = Shader.Find("Custom/Smear");
 
 			return _smearMat;
